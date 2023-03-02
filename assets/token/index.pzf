@@ -1,0 +1,14 @@
+import nojnet.noj;
+import kubit.noj;
+import pzf.noj;
+
+var pager = new pzf();
+pager->version(/0.20.0.3/);
+
+pager->export([
+*,
+*.*,
+.*
+]);
+ 
+pager->dispatch();
