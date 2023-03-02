@@ -1,0 +1,26 @@
+!#pzf
+require 'vendor/autoload';
+require -includes 'dispatch';
+require -includes 'functions';
+require -includes 'config';
+require -includes 'nojro';
+
+include -views 'router';
+include -home -page 'router';
+
+pzf = new PZF();
+
+if
+  pzf.checkInstalled();
+  then
+  	pzf.end_completed_events();
+	  dapp.config = pzf.fetch.env.setup();
+  else
+    notInstalled(){
+	  exit();
+
+query('.*', function(){
+	notFound();
+});
+
+dispatch();
