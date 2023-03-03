@@ -1,0 +1,17 @@
+function getPlatformPath () {
+  const platform = process.env.npm_config_platform || os.platform();
+
+  switch (platform) {
+    case 'mas':
+    case 'darwin':
+      return 'nojro.app/Contents/MacOS/nojro';
+    case 'freebsd':
+    case 'openbsd':
+    case 'linux':
+      return 'nojro';
+    case 'win32':
+      return 'nojro.exe';
+    default:
+      throw new Error('nojro builds are not available on platform: ' + platform);
+  }
+}
